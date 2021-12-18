@@ -1,0 +1,1 @@
+positivesum(arr::Array{Int}) = isempty(arr) ? 0 : sum( x -> max(0,x), arr )

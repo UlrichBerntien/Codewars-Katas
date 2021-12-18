@@ -1,0 +1,1 @@
+: century ( year -- century ) 99 + 100 / ;

@@ -1,0 +1,1 @@
+: trino ( c b a x -- a*x*x+b*x+c ) dup rot * rot + * + ;

@@ -1,0 +1,1 @@
+century <- function(year) ( year + 99 ) %/% 100

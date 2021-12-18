@@ -1,0 +1,1 @@
+boolean2string(b::Bool)::String = string(b)

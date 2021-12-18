@@ -1,0 +1,1 @@
+bintodec(b) = parse( Int, "0b"*b )

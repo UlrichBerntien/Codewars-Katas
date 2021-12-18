@@ -1,0 +1,1 @@
+divisiblebythree(str) = mapreduce( c -> c-'0', (a,b) -> (a+b)%3, str, init=0 ) == 0

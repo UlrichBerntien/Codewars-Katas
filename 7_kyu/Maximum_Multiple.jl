@@ -1,0 +1,1 @@
+maxmultiple(divisor, bound) = (bound÷divisor)*divisor

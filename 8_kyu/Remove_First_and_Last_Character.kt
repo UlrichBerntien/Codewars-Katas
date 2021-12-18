@@ -1,0 +1,1 @@
+fun removeChar(str: String): String = str.substring(1,str.length-1)

@@ -1,0 +1,1 @@
+hero(bullets, dragons) = dragons ≤ bullets ÷ 2

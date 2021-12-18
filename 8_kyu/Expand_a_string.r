@@ -1,0 +1,1 @@
+expand <- function(s) strsplit(s,NULL)[[1]]

@@ -1,0 +1,1 @@
+solution(str,suffix) = endswith(str,suffix)

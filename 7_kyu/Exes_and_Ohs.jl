@@ -1,0 +1,1 @@
+xo(str) = count(c -> c == 'o' || c == 'O', str ) == count(c -> c == 'x' || c == 'X', str )

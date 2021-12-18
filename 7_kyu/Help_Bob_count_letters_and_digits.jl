@@ -1,0 +1,1 @@
+countlettersanddigits(input) = count( x -> isdigit(x) || isletter(x), input )

@@ -1,0 +1,1 @@
+sc=lambda n:[i for i in range(1,n+1) if n%i==0 and f"{i:b}" in f"{n:b}"]

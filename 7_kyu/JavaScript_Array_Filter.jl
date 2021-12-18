@@ -1,0 +1,1 @@
+getevennumbers(arr) = filter(iseven,arr)

@@ -1,0 +1,1 @@
+odds = lambda lst: list(filter(lambda x: x%2,lst))

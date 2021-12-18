@@ -1,0 +1,3 @@
+CREATE TEMPORARY TABLE visa(country VARCHAR(255),needed BOOLEAN);
+INSERT INTO visa VALUES ('Canada',FALSE),('Mexico',FALSE),('USA',FALSE);
+SELECT name, country FROM travelers NATURAL LEFT JOIN visa WHERE needed IS NOT FALSE;

@@ -1,0 +1,1 @@
+repeatstr(n, s) = s^n

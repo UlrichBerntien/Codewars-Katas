@@ -1,0 +1,1 @@
+fun maps(x: IntArray): IntArray = IntArray(x.size) { x[it] * 2 }

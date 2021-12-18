@@ -1,0 +1,1 @@
+: row-sum-odd-numbers ( n -- x ) dup dup * * ;

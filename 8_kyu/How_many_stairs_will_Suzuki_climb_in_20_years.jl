@@ -1,0 +1,1 @@
+stairsin20(s) = 20 * sum(Iterators.flatten(s))

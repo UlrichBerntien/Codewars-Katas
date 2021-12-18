@@ -1,0 +1,1 @@
+: past ( u u u -- u ) swap rot 60 * + 60 * + 1000 * ;

@@ -1,0 +1,1 @@
+fun replace(s: String): String = s.replace( Regex("[aeiou]",RegexOption.IGNORE_CASE), "!" )

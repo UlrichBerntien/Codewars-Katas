@@ -1,0 +1,1 @@
+getrealfloor(n::Int)::Int = n - (n > 0) - (n > 13)

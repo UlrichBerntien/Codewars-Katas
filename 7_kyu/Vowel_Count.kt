@@ -1,0 +1,1 @@
+fun getCount(str : String) : Int = str.count { it in "aeiou" }

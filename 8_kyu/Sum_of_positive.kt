@@ -1,0 +1,1 @@
+fun sum(numbers: IntArray): Int = numbers.sumBy { if(it > 0) it else 0 }

@@ -1,0 +1,1 @@
+divide(weight) = weight > 3 && iseven(weight-2)

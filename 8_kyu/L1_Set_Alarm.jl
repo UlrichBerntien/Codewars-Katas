@@ -1,0 +1,1 @@
+setalarm(employed, vacation) = employed && !vacation

@@ -1,0 +1,1 @@
+stringtonumber(str) = parse( Int, str )

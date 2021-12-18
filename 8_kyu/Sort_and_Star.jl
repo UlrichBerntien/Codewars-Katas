@@ -1,0 +1,1 @@
+twosort(array) = join(minimum(array),"***")

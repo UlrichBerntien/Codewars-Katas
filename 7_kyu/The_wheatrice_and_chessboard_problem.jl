@@ -1,0 +1,1 @@
+squaresneeded(grains) = grains > 0 ? trunc( log2(grains)+1 ) : 0

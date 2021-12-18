@@ -1,0 +1,1 @@
+triangle=lambda*a:sum(a)>2*max(a)

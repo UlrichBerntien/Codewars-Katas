@@ -1,0 +1,1 @@
+tojadencase(sentence::String) = titlecase(sentence, wordsep=isspace)

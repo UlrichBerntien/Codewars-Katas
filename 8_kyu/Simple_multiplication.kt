@@ -1,0 +1,1 @@
+fun simpleMultiplication(n: Int): Int = n * (8 + n % 2)

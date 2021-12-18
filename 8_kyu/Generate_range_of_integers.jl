@@ -1,0 +1,1 @@
+generaterange(min, max, step) = Array(min:step:max)

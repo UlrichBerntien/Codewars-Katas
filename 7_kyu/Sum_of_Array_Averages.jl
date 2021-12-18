@@ -1,0 +1,1 @@
+sumaverage(arr) = map(mean,arr) |> sum |> floor

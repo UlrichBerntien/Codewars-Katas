@@ -1,0 +1,1 @@
+fun dutyFree(normPrice: Int, discount:Int, hol:Int) : Int = (hol*100)/(normPrice*discount)

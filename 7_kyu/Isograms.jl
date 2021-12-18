@@ -1,0 +1,1 @@
+isisogram(str::AbstractString) = !occursin(r"(?i)(\w).*\1", str)

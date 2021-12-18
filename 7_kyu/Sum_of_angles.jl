@@ -1,0 +1,1 @@
+angle(n::Int)::Int = 180(n-2)

@@ -1,0 +1,1 @@
+fun loveFun(flowerA: Int, flowerB: Int): Boolean = flowerA % 2 != flowerB % 2

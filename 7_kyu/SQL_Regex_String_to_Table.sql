@@ -1,0 +1,1 @@
+SELECT regexp_split_to_table(text,'[aeiouAEIOU]') AS results FROM random_string;

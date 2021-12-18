@@ -1,0 +1,1 @@
+fun noSpace(x: String): String = x.filterNot(Char::isWhitespace)

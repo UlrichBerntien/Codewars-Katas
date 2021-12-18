@@ -1,0 +1,1 @@
+descendingorder(n) = foldr( (x,accu) -> muladd(10,accu,x), sort!(digits(n)) )
