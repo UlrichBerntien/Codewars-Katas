@@ -1,7 +1,6 @@
 package kata
 
 import (
-	"math/big"
 	"sort"
 	"strconv"
 	"strings"
@@ -25,13 +24,12 @@ func calculateStatistics(data []int) statistics {
 	} else {
 		result.median = (data[dataLen/2-1] + data[dataLen/2]) / 2
 	}
-	// calculate average, keep in mind many ints result in big sum
-	sum := big.NewInt(0)
+	// calculate average, use int64 to reduce overflow error risk
+	var sum int64
 	for _, x := range data {
-		sum.Add(sum, big.NewInt(int64(x)))
+		sum += int64(x)
 	}
-	sum.Div(sum, big.NewInt(int64(dataLen)))
-	result.average = int(sum.Int64())
+	result.average = int(sum / int64(dataLen))
 	return result
 }
 
