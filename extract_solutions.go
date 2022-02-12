@@ -139,6 +139,7 @@ var language2extension = map[string]string{
 	"nasm":   "asm",
 	"python": "py",
 	"r":      "r",
+	"rust":   "rs",
 	"shell":  "sh",
 	"sql":    "sql",
 }
@@ -182,6 +183,7 @@ func languageExtension(language string) string {
 }
 
 // Write an item (a solution in one language) into a file.
+// If more than one solution to a kata exists the newest solution is stored in the file.
 func writeItem() {
 	if len(item.name) == 0 || len(item.sourcecode) == 0 {
 		// error case:
@@ -193,17 +195,30 @@ func writeItem() {
 	filetime, err := time.Parse("2006-01-02T15:04:05.999-0700", item.date)
 	if err != nil {
 		fmt.Println("ERROR: invalid date-time format", item.date)
+		// error fallback: use the current time
 		filetime = time.Now()
 	}
-	err = os.MkdirAll(dirname, 0777)
+	err = os.MkdirAll(dirname, 0755)
 	if err != nil {
 		fmt.Println("ERROR: creating directory", err)
 	}
-	err = os.WriteFile(filename, []byte(item.sourcecode), 0444)
-	if err != nil {
-		fmt.Println("ERROR: creating file", err)
+	info, err := os.Stat(filename)
+	// Write if not exists or the current solution is newer.
+	if err != nil || info.ModTime().Unix() < filetime.Unix() {
+		if err == nil {
+			// Set old file writeable. Typical the files are readonly.
+			os.Chmod(filename, 0644)
+		}
+		err = os.WriteFile(filename, []byte(item.sourcecode), 0444)
+		if err != nil {
+			fmt.Println("ERROR: creating file", err)
+		}
+		// Set the date of the solution as modification date of the file.
+		// Set the access time stamp to the current time.
+		os.Chtimes(filename, time.Now(), filetime)
+		// Ensures the file is readonly.
+		os.Chmod(filename, 0444)
 	}
-	os.Chtimes(filename, time.Now(), filetime)
 }
 
 // Gets the value of a node attribute.
