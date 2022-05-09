@@ -60,9 +60,9 @@ local kata = {}
 
 function kata.decode_morse_code(morse_code)
   return morse_code
-    :gsub( "[%.%-]+", function(c) return MORSE_CODE[c] end )
+    :gsub( "[%.%-]+", MORSE_CODE )
     :gsub( "%s+", function(s) return string.rep(" ",#s//3) end )
-    :gsub( "^%s*(.-)%s*$", "%1" )
+    :match( "^%s*(.-)%s*$" )
 end
 
 return kata
