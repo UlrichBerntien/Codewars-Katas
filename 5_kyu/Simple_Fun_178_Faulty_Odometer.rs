@@ -18,5 +18,6 @@ fn faulty_odometer(n: usize) -> usize {
             accu -= 1;
         }
     }
+    println!("{} -> {}", n, accu);
     accu
 }

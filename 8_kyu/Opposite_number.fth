@@ -1,1 +1,1 @@
-: opposite ( n -- -n ) 0 swap - ;
+: opposite ( n -- -n ) negate ;

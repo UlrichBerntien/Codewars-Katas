@@ -131,6 +131,7 @@ var item struct {
 // Table of language -> file name extension
 var language2extension = map[string]string{
 	"csharp": "cs",
+	"cpp":    "cpp",
 	"forth":  "fth",
 	"go":     "go",
 	"julia":  "jl",
