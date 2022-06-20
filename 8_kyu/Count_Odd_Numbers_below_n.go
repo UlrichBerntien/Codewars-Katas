@@ -1,5 +1,5 @@
 package kata
 
-func OddCount(n int) int{
-  return n/2
+func OddCount(n int) int {
+  return n / 2
 }

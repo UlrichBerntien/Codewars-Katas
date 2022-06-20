@@ -8,14 +8,10 @@ global xorf
 xorf:
   ; arg0: interpret all values !=0 as true
   test rdi,rdi
-  jz arg0_false
-  mov dil,1
+  setnz dil
   ; arg1: interpret all values !=0 as true
-arg0_false:
   test rsi,rsi
-  jz arg1_false
-  mov sil,1
-arg1_false:
+  setnz sil
   ; after normalization to 0 or 1 use the bitwise xor
   xor dil,sil
   movzx rax,dil

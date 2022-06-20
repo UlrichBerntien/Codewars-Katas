@@ -1,0 +1,1 @@
+iscoprime(x::Integer, y::Integer) = gcd(x,y) == 1
