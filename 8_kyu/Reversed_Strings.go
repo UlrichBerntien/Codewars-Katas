@@ -1,10 +1,10 @@
 package kata
-import "strings"
 
 func Solution(word string) string {
-  var accu strings.Builder
-  for i := len(word)-1; i >= 0; i-- {
-    accu.WriteByte( word[i] )
+    length := len(word)
+    accu := make( []rune, length )
+    for i,v := range word {
+        accu[length-i-1] = v
   }
-  return accu.String()
+  return string(accu)
 }
