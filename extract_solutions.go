@@ -138,6 +138,7 @@ var language2extension = map[string]string{
 	"kotlin": "kt",
 	"lua":    "lua",
 	"nasm":   "asm",
+	"riscv":  "riscv.s",
 	"python": "py",
 	"r":      "r",
 	"rust":   "rs",
