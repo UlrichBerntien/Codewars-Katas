@@ -1,15 +1,23 @@
+import numpy as np
+
 # Color name to color ID.
-COLOR2ID = {"R":0, "G":1, "B":2}
+COLOR2ID = np.zeros(256,np.byte)
+COLOR2ID[ord("R")] = 1
+COLOR2ID[ord("G")] = 2
+COLOR2ID[ord("B")] = 4
 
 # Color ID to color name.
-ID2COLOR = "RGB"
+ID2COLOR = "_RG_B"
 
-# Base color IDs to top color ID.
-BASE2TOP = (0,2,1, 2,1,0, 1,0,2)
+# Base color IDs "or connected" to top color ID.
+BASE2TOP = np.asarray((1,1,2,4,4,2,1,1), np.byte)
 
 def triangle(row: str) -> str:
-    line = list(map(lambda c: COLOR2ID[c],row))
-    for n in range(len(line),1,-1):
-        for idx in range(n-1):
-            line[idx] = BASE2TOP[line[idx] + 3*line[idx+1]]
+    if not(type(row) is str and len(row) > 1):
+        return row
+    line = COLOR2ID[np.frombuffer(row.encode(),dtype=np.byte)]
+    while len(line) > 1:
+        np.bitwise_or(line[:-1], line[1:], out=line[:-1])
+        line = line[:-1]
+        BASE2TOP.take(line, out=line)
     return ID2COLOR[line[0]]
