@@ -1,12 +1,12 @@
 function towerBuilder(nFloors)
-    wide = nFloors*2-1
-    stars = string.rep("*",wide)
-    spaces = string.rep(" ",wide)
-    tower = {}
+    local wide = nFloors*2-1
+    local stars = ("*"):rep(wide)
+    local spaces = (" "):rep(wide)
+    local tower = {}
     for level = 1,nFloors do
-        center = level*2-1
-        side = (wide-center)//2
-        table.insert(tower, string.sub(spaces,1,side) .. string.sub(stars,1,center) .. string.sub(spaces,1,side) )
+        local center = level*2-1
+        local side = (wide-center)//2
+        tower[level] = spaces:sub(1,side) .. stars:sub(1,center) .. spaces:sub(1,side)
     end
     return tower
 end
