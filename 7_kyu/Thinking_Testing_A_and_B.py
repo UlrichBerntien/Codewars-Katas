@@ -1,2 +1,3 @@
-def testit (a, b):
+# Code puzzle.
+def testit (a: int, b:int ) -> int:
     return a | b
