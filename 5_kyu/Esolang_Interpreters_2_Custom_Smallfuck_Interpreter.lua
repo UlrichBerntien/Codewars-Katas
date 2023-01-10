@@ -9,24 +9,24 @@ local function smallfuck2lua(code,tape)
       program = program .. "false,"
     end
   end
-  program = program:sub(1,#program-1) .. "};"
+  program = program:sub(1,#program-1) .. "}\n"
   -- Convert code
-  program = program.."local i = 1;"
+  program = program.."local i = 1\n"
   for step in code:gmatch(".") do
     if step == ">" then
-      program = program.."i=i+1; if i>#tape then return tape end;"
+      program = program.."i=i+1; if i>#tape then return tape end\n"
     elseif step == "<" then
-      program = program.."i=i-1; if i<1 then return tape end;"
+      program = program.."i=i-1; if i<1 then return tape end\n"
     elseif step == "*" then
-      program = program.."tape[i]=not tape[i];"
+      program = program.."tape[i]=not tape[i]\n"
     elseif step == "[" then
-      program = program.."while tape[i] do;"
+      program = program.."while tape[i]==true do\n"
     elseif step == "]" then
-      program = program.."end;"
+      program = program.."end\n"
     end
   end
   -- Return tape at end of the program
-  program = program .. "return tape"
+  program = program .. "return tape\n\n"
   return program
 end
 
