@@ -1,4 +1,1 @@
-function sumtwosmallestnumbers(numbers)
-    n = 2
-    sum( sort(numbers, alg=PartialQuickSort(n))[1:n] )
-end
+sumtwosmallestnumbers(numbers)  = sum( partialsort(numbers, 1:2) )
