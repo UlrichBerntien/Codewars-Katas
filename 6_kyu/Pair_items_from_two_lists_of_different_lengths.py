@@ -8,12 +8,12 @@ def pair_items(iter1, iter2):
         return [ list(zip(list1,list2)) ]
     elif delta_len > 0:
         result = []
-        for idx in itertools.combinations(range(len(list1)),len(list2)):
-            result.append( list(zip((list1[i] for i in idx),list2)) )
+        for sublist in itertools.combinations(list1,len(list2)):
+            result.append( list(zip(sublist,list2)) )
         return result
     else:
         assert delta_len < 0
         result = []
-        for idx in itertools.combinations(range(len(list2)),len(list1)):
-            result.append( list(zip(list1,(list2[i] for i in idx))) )
+        for sublist in itertools.combinations(list2,len(list1)):
+            result.append( list(zip(list1,sublist)) )
         return result

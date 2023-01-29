@@ -12,7 +12,7 @@ func distance(a, b []int) float64 {
 	}
 	dx := float64(a[0] - b[0])
 	dy := float64(a[1] - b[1])
-	return math.Sqrt(dx*dx + dy*dy)
+	return math.Hypot(dx, dy)
 }
 
 // Time to reach target.

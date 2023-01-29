@@ -7,7 +7,7 @@ function kata.animals(heads, legs)
   -- solve this system of 2 linear equations
   local cows = legs/2 - heads
   local chickens = 2*heads - legs/2
-  if cows < 0 or chickens < 0 or legs%2 ~= 0 then
+  if cows < 0 or chickens < 0 or cows%1 ~= 0 or chickens%1 ~= 0 then
     return 'No solutions'
   else
     return { chickens, cows }

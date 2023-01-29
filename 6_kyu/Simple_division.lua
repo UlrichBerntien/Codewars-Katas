@@ -1,6 +1,6 @@
 simplediv = {}
 function simplediv.solve(a,b)
-    i = 2
+    local i = 2
     while i <= b and i <= a do
       if b % i == 0 then
           if a % i > 0 then

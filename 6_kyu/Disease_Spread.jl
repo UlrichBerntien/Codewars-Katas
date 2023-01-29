@@ -1,7 +1,7 @@
 module Disease
     export epidemic
 
-    function epidemic(tm::Number, n::Number, s0::Number, i0::Number, b::Number, a::Number)
+    function epidemic(tm::Number, n::Number, s0::Number, i0::Number, b::Number, a::Number)::Int
         dt::Float64 = tm/n
         dta::Float64 = dt * a
         dtb::Float64 = -dt * b
@@ -19,6 +19,6 @@ module Disease
             r += dr
             i += di
         end
-        return i
+        return Int(floor(i))
     end
 end

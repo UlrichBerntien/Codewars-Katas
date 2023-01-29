@@ -1,8 +1,10 @@
 package kata
 import "unicode"
 
-// Version without creating a temporary array of string via strings.Split
-// needs no additional memory allocation.
+// - Without creating a temporary array of string via strings.Split
+//   needs no additional memory allocation.
+// - By compare the runes in the string and not the bytes it works
+//   also with all multi-byte unicode charachters.
 
 func FindShort(s string) int {
     min := len(s)

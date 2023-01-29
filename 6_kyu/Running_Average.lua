@@ -1,13 +1,13 @@
 local kata = {}
 
 function kata.runningAverage()
-    N = 0
-    Average = 0
+    local n = 0
+    local average = 0
     return function(x)
-        Nold = N
-        N = N + 1
-        Average = Average * (Nold/N) + x/N
-        return math.floor(Average*100+0.5)/100
+        local nOld = n
+        n = n + 1
+        average = average * (nOld/n) + x/n
+        return math.floor(average*100+0.5)/100
     end
 end
 

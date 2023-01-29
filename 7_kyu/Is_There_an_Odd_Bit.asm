@@ -2,8 +2,8 @@ global anyodd
 
 ; <-- EAX anyodd(EDI x) -->
 anyodd:
-    test edi,0xAAAA_AAAA_AAAA_AAAA_AAAA_AAAA_AAAA_AAAA_AAAA_AAAA_AAAA_AAAA_AAAA_AAAA_AAAA_AAAA
+    test edi,0xAAAAAAAA
     setne al
-    movzx rax,al
+    movzx eax,al
     ret
 ; -----> endof anyodd <-----

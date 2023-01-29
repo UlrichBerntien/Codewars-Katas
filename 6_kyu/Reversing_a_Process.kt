@@ -16,7 +16,7 @@ fun modulaInverse(x: Int, m: Int): Int {
 
 fun decode(r: String): String {
     val factor = r.takeWhile(Char::isDigit).toInt()
-    if( factor % 2 == 0 || factor % 13 == 0 ) // <- for this kata, I think "factor % 26 == 0" is the correct condition
+    if( factor % 2 == 0 || factor % 13 == 0 ) // only for this kata, I think "factor % 26 == 0" is the correct condition
         return "Impossible to decode"
     else {
         val invers = modulaInverse(factor,26)

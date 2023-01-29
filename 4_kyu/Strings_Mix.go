@@ -14,27 +14,26 @@ type letterInfo struct {
 }
 
 // Adds the letters (only a-z) of the string to the counter.
-func updateCountLetters(s string, countIndex int, hash map[rune]*letterInfo) {
+// Index in the info is letter-'a'.
+func updateCountLetters(s string, countIndex int, info []letterInfo) {
 	for _, c := range s {
 		if 'a' <= c && c <= 'z' {
-			hash[c].count[countIndex]++
+			info[c-'a'].count[countIndex]++
 		}
 	}
 	return
 }
 
 // Counts the letters (only a-z) in the two strings.
+// Index in the returned array is letter-'a'.
 func countLetters(s1, s2 string) []letterInfo {
 	azCount := int('z'-'a') + 1
 	info := make([]letterInfo, azCount)
-	hash := make(map[rune]*letterInfo, azCount)
 	for i := 0; i < azCount; i++ {
-		r := rune('a' + i)
-		info[i].letter = r
-		hash[r] = &info[i]
+		info[i].letter = rune('a' + i)
 	}
-	updateCountLetters(s1, 1, hash)
-	updateCountLetters(s2, 2, hash)
+	updateCountLetters(s1, 1, info)
+	updateCountLetters(s2, 2, info)
 	return info
 }
 
@@ -67,6 +66,7 @@ func calculateMaxs(letters []*letterInfo) {
 // Formats the letter infos according the kata specification.
 // Includes only letters down to limit maximal coint.
 func formatLetters(letters []*letterInfo, limit int) string {
+  index2name := [3]string{"=:", "1:", "2:"}
 	var result strings.Builder
 	for i, l := range letters {
 		if l.maxCount < limit {
@@ -75,12 +75,7 @@ func formatLetters(letters []*letterInfo, limit int) string {
 		if i > 0 {
 			result.WriteRune('/')
 		}
-		if l.maxIndex == 0 {
-			result.WriteRune('=')
-		} else {
-			result.WriteRune(rune('0' + l.maxIndex))
-		}
-		result.WriteRune(':')
+    result.WriteString( index2name[l.maxIndex] )
 		for i := 0; i < l.maxCount; i++ {
 			result.WriteRune(l.letter)
 		}

@@ -6,5 +6,5 @@ func SumEvenFibonacci(limit int) (sum int) {
       a,b = b,a+b
       if a & 1 == 0 { sum += a }
     }
-    return sum
+    return
 }
