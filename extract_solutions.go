@@ -20,6 +20,7 @@ package main
 //
 
 import (
+	"encoding/base64"
 	"encoding/json"
 	"fmt"
 	"golang.org/x/net/html"
@@ -56,6 +57,7 @@ type harContentType struct {
 	MimeType    string
 	Compression int
 	Text        string
+	Encoding    string
 }
 
 // Part of the HAR JSON Data structure.
@@ -310,7 +312,16 @@ func main() {
 	}
 	for _, entry := range archive.Log.Entries {
 		if entry.Response.Status == 200 && strings.Contains(entry.Request.Url, "completed_solution") {
-			processContentText(entry.Response.Content.Text)
+			text := entry.Response.Content.Text
+			switch enc := entry.Response.Content.Encoding; enc {
+			case "": // nothing to do
+			case "base64":
+				dec, _ := base64.StdEncoding.DecodeString(text)
+				text = string(dec)
+			default:
+				fmt.Println("Unknown content encoding:", enc)
+			}
+			processContentText(text)
 		}
 	}
 	return
