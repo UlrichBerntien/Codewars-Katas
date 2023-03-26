@@ -1,4 +1,5 @@
 #include <assert.h>
+#include <limits.h>
 
 // Returns minmum of the integers a and b.
 static inline int min(const int a , const int b) {
@@ -11,9 +12,8 @@ static inline int max(const int a , const int b) {
 }
 
 // Returns sum of the intergers a, a+1, ..., b.
-// Limitation: 0 <= a <= b.
+// Limitation: a <= b.
 static inline int gauss(const int a, const int b) {
-  assert( a <= b );
   return ( (a+b)*(b-a+1) )/2;
 }
 
