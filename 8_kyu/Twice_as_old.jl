@@ -1,0 +1,1 @@
+twiceasold(dadyearsold, sonyearsold) = abs(2 * sonyearsold - dadyearsold)
