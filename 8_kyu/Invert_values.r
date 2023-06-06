@@ -1,0 +1,2 @@
+# Returns the negative.
+invert <- `-`

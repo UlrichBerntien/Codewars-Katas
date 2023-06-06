@@ -1,0 +1,1 @@
+hero <- function(bullets, dragons) dragons <= bullets %/% 2
