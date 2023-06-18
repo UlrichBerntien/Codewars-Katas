@@ -1,0 +1,1 @@
+sum=function(n){s=c(3,5,-15);m=n%/%abs(s);(s%*%(m*m+m)/2)[,]}
