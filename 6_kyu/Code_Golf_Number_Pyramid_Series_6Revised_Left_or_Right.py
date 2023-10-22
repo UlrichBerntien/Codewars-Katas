@@ -1,0 +1,1 @@
+left_right=lambda n:('CR','L',M:=int((2*n)**.5+.5)**2/2+.5)[n<M][n>M]

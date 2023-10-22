@@ -25,19 +25,19 @@ def run(tricks :list):
             # one old option, index i, combined with n_tricks
             old_option = options[i,:] 
             # resulting new options
-            new_options = options[n_hold+i*n_tricks:n_hold+(1+i)*n_tricks,:]
+            new_options = options[n_hold_calculated+i*n_tricks:n_hold_calculated+(1+i)*n_tricks,:]
             new_options[:,3:3+n_tricks] = old_option[3:3+n_tricks]
             for trick_id in range(n_tricks):
                 new_options[trick_id,3+trick_id] += 1 # count number of tricks
             new_options[:,2] = old_option[2] * trk[:,2]  # probability
             new_options[:,1] = old_option[1] + trk[:,0] * trk[:,1] ** old_option[3:3+n_tricks] # sum points
             new_options[:,0] = new_options[:,1] * new_options[:,2] # expected result
-        # n_hold_calculated*n_tricks options are now new calculated.
-        n_hold_calculated = min(n_hold_calculated*(1+n_tricks), n_hold)
         # Sort the array descending by the expected result and suppress options duplicates
-        u = np.unique(options,axis=0)
+        u = np.unique(options[:n_hold_calculated*(1+n_tricks)],axis=0)
         u = u[(-u[:,0]).argsort()]
         options[:len(u)] = u
+        # calculated part of the maximal n_hold options to hold in each iteration
+        n_hold_calculated = min(len(u), n_hold)
         if best_points >= options[0,0]:
             # no better combination found by adding a trick
             break
