@@ -1,0 +1,1 @@
+count_bits = int.bit_count
