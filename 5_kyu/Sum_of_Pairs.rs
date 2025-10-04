@@ -1,20 +1,20 @@
-#[inline(always)]
-fn value2index(x: i8) -> usize {
-    (x as u8) as usize
-}
+use std::collections::HashSet;
 
+// Returns a pair of two ints with sum s.
+// Returns None of no pair in the ints has sum s.
 fn sum_pairs(ints: &[i8], s: i8) -> Option<(i8, i8)> {
-    let ints_len = ints.len();
-    let mut first_index: [usize; 256] = [ints_len; 256];
-    for i in 0..ints_len {
-        let value = ints[i];
-        if first_index[value2index(value)] < ints_len {
-            return Some((ints[first_index[value2index(value)]], value));
+    // HEre store the integers seen so far in the array.
+    let mut seen: HashSet<i8> = HashSet::with_capacity(ints.len());
+    for &x in ints.iter() {
+        // This x is one part of the pair if y is in the ints array.
+        let y = s - x;
+        if seen.contains(&y) {
+            // Found one pair; return immediately.
+            return Some((y, x));
         }
-        let search = s.checked_sub(value);
-        if search != None {
-            first_index[value2index(search.unwrap())] = i;
-        }
+        // Store the seen integer.
+        seen.insert(x);
     }
+    // No pair with given sum s found.
     None
 }
